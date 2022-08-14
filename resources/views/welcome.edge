@@ -1,0 +1,25 @@
+@layout('layout')
+@section('content')
+    <div class="logo"></div>
+    <div class="title"></div>
+    <div class="subtitle">
+      <p>Добро пожаловать в панель администрирования Taxi Dispatcher</p>
+      @if(!isLoggedIn)
+      <p>
+        Войдите, чтобы начать работу.
+      </p>
+      @endif
+    </div>
+    @if(isLoggedIn)
+    <div class="logout-form">
+      <input id="auth-token" type="hidden" value="{{token()}}" />
+      <a id="logout-button" href="#">Выйти</a>
+    </div>
+    @else
+    <div class="auth-form">
+      <input type="text" id="login" name="login" value="psdevelop@yandex.ru" />
+      <input type="password" id="password" name="password" value="psdevelop4psw" />
+      <a id="login-button" href="#">Войти</a>
+    </div>
+    @endif
+@endsection
